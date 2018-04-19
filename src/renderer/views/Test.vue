@@ -2,7 +2,7 @@
     <div id="wrapper">
 
         <main>
-           <h1>fdfdfd</h1>
+            <h1>fdfdfd</h1>
         </main>
 
     </div>
@@ -14,18 +14,16 @@
     export default {
         name: 'Test',
         components: {},
-        methods: {
-
-        },
+        methods: {},
         mounted() {
             console.log(config);
             this.$http.get(`${config.CodingHost}/api/current_user`, {
-                params: {
-                    access_token: config.CodingToken
+                headers: {
+                    Authorization: `token ${config.CodingToken}`
                 }
-            }).then(res=>{
+            }).then(res => {
                 console.log(res);
-            }).catch(err=>{
+            }).catch(err => {
                 console.log(err);
             });
         },
